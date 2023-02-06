@@ -1,5 +1,6 @@
 import { NavBar } from "../components/NavBar";
 import { motion as m } from "framer-motion";
+import { container, item } from "../animations";
 
 export function Contact() {
     return (
@@ -12,7 +13,7 @@ export function Contact() {
                 exit={{opacity: 1}}
                 className="absolute w-full h-full left-0 top-0  bg-red-400 lg:px-48 px-16 text-gray-900"
             >
-                <div className="my-96 p-1 overflow-hidden">
+                <div className="my-80 p-1 overflow-hidden">
                     <m.h1 
                         initial={{y: "100%"}}
                         animate={{y: 0}}
@@ -27,12 +28,20 @@ export function Contact() {
                         Me encontre em:
                     </div>
                     <div className="lg:text-6xl text-2xl underline">
-                        <ul>
-                            <li className="pb-2">Twitter</li>
-                            <li className="pb-2">Instagram</li>
-                            <li className="pb-2">LinkedIn</li>
-                            <li className="pb-2">Github</li>
-                        </ul>
+                        <m.ul variants={container} initial="hidden" animate="show">
+                            <div className="overflow-hidden">
+                                <m.li variants={item} className="pb-2">Twitter</m.li>
+                            </div>
+                            <div className="overflow-hidden">
+                                <m.li variants={item} className="pb-2">Instagram</m.li>
+                            </div>
+                            <div className="overflow-hidden">
+                                <m.li variants={item} className="pb-2">LinkedIn</m.li>
+                            </div>
+                            <div className="overflow-hidden">
+                                <m.li variants={item} className="pb-2">Github</m.li>
+                            </div>
+                        </m.ul>
                     </div>
                 </div>
             </m.main>
